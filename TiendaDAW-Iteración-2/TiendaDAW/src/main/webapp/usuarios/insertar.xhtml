@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+<h:head>
+   <f:metadata>
+      <f:viewParam name="administrador" required="true"
+                   />
+   </f:metadata>
+</h:head>
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+   <ui:define name="contenido">
+      <div class="container px-4 px-lg-5 my-5">
+         <section>
+            <main class="form-signin w-100 m-auto">
+               <h:form>
+                  <h:messages globalOnly="true" layout="table" infoClass="alert alert-success" errorClass="alert alert-danger" />
+                  <h1 class="h3 mb-3 fw-normal">Insertar Usuario (Solo usuario y contraseña necesarios)
+                     <a class="btn btn-outline-primary"
+                        href="#{request.contextPath}/usuarios/paginaUsuario.xhtml?email=${administrador}" >Volver
+                     </a>
+                  </h1>
+                  <div class="form-group">
+                     <label for="email">Email</label>
+                     <h:inputText class="form-control" id="email" placeholder="ejemplo@ejemplo.com"
+                                  value="#{ctrlUsuarios.usuario.email}"></h:inputText>
+                     <small><h:message style="color: red;" for="email"/></small>
+                  </div>
+                  <div class="form-group">
+                     <label for="contr">Contraseña</label>
+                     <h:inputText class="form-control" id="contr" placeholder="Contraseña"
+                                  value="#{ctrlUsuarios.usuario.contraseña}"></h:inputText>
+                     <small><h:message style="color: red;" for="contr"/></small>
+                  </div>
+                  <div class="form-group">
+                     <label for="nombre">Nombre</label>
+                     <h:inputText class="form-control" id="nombre" placeholder="Nombre"
+                                  value="#{ctrlUsuarios.usuario.nombre}"
+                     ></h:inputText>
+                     <small><h:message style="color: red;" for="nombre"/></small>
+                  </div>
+                  <div class="form-group">
+                     <label for="dir">Dirección</label>
+                     <h:inputText class="form-control" id="dir" placeholder="Dirección"
+                                  value="#{ctrlUsuarios.usuario.direccion}"
+                     ></h:inputText>
+                     <small><h:message style="color: red;" for="dir"/></small>
+                  </div>
+                  <div class="form-group">
+                     <label for="tarjeta">Tarjeta</label>
+                     <h:inputText class="form-control" id="tarjeta" placeholder="Tarjeta de Crédito"
+                                  value="#{ctrlUsuarios.usuario.tarjeta}"
+                     ></h:inputText>
+                     <small><h:message style="color: red;" for="tarjeta"/></small>
+                  </div>
+                  <div class="form-group">
+                     <label for="tipo">Tipo</label>
+                     <h:inputText class="form-control" id="tipo" placeholder="Tipo"
+                                  value="#{ctrlUsuarios.usuario.tipo}"
+                     ></h:inputText>
+                     <small><h:message style="color: red;" for="tipo"/></small>
+                  </div>
+                  <br>
+                     <h:commandButton class="w-100 btn btn-lg btn btn-success"
+                                      action="#{ctrlUsuarios.crea()}" value="Insertar usuario">
+                     </h:commandButton>
+                  </br>
+               </h:form>
+            </main>
+         </section>
+      </div>
+   </ui:define>
+</ui:composition>
+</html>
+

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <script src="#{request.contextPath}/resources/js/productos.app.js"></script>
+</h:head>
+<body>
+<div class="row text-center">
+    <h1>Listado de Productos</h1>  <a
+                                      href="#{request.contextPath}/usuarios/paginaUsuario.xhtml">Volver</a>
+    <ul id="lista">
+        <!-- listado de libros -->
+    </ul>
+    <h1>Alta de Producto</h1>
+    <div id="errores"><!-- Mensajes de error --></div>
+    <form id="fAlta" method="POST" action="">
+        <div><label>Nombre:<input name="nombreInsertar"></input></label></div>
+        <div><label>Descripcion:<input name="descripcionInsertar"></input></label></div>
+        <div><label>Precio:<input name="precioInsertar"></input></label></div>
+        <div><label>Stock:<input name="stockInsertar"></input></label></div>
+        <div><label>Ruta:<input name="rutaInsertar"></input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+    <h1>Modificar Producto</h1>
+    <form id="fMod" method="POST" action="">
+        <div><label>Id: <input name="idModificar"> </input></label></div>
+        <div><label>Nombre:<input name="nombreModificar"></input></label></div>
+        <div><label>Descripcion:<input name="descripcionModificar"></input></label></div>
+        <div><label>Precio:<input name="precioModificar"></input></label></div>
+        <div><label>Stock:<input name="stockModificar"></input></label></div>
+        <div><label>Ruta:<input name="rutaModificar"></input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+    <h1>Borrar Producto</h1>
+    <form id="fBorra" method="POST" action="">
+        <div><label>Id: <input name="idBorrar"> </input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+</div>
+</body>
+
+</html>

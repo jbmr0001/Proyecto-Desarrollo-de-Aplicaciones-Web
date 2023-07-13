@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+    <ui:define name="contenido" >
+        <div class="container px-1 px-lg-1 my-1">
+            <main class="form-signin w-20 m-auto">
+                <!--<form method="POST" action="login">-->
+                    <section class="vh-100">
+                        <div class="container py-5 h-100">
+                            <div class="row d-flex justify-content-center align-items-center h-100">
+                                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                                        <div class="card-body p-5 text-center">
+                                            <h:form>
+                                                <h:messages globalOnly="true" layout="table" infoClass="alert alert-success" errorClass="alert alert-danger" />
+                                                <h3 class="mb-5">Iniciar Sesión
+                                                </h3>
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="email">Email</label>
+                                                    <h:inputText class="form-control form-control-lg" id="email" placeholder="ejemplo@ejemplo.com"
+                                                                 value="#{ctrlUsuarios.usuario.email}"></h:inputText>
+                                                    <small><h:message style="color: red;" for="email"/></small>
+                                                </div>
+                                                <div class="form-outline mb-4">
+                                                    <label class="form-label" for="contr">Contraseña</label>
+                                                    <h:inputText class="form-control form-control-lg" id="contr" placeholder="Contraseña"
+                                                                 value="#{ctrlUsuarios.usuario.contraseña}"></h:inputText>
+                                                    <small><h:message style="color: red;" for="contr"/></small>
+                                                </div>
+
+                                                <br>
+                                                    <h:commandButton class="btn btn-success btn-lg btn-block"
+                                                                     action="#{ctrlUsuarios.registro()}" value="Iniciar Sesión">
+                                                    </h:commandButton>
+                                                    <p>¿No eres miembro? <a href="registrarse.xhtml">Registrarse</a></p>
+                                                </br>
+
+                                            </h:form>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <!--</form>-->
+            </main>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

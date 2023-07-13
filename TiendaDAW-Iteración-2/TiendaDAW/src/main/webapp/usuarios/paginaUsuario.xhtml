@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core">
+<h:head>
+    <f:metadata>
+        <f:viewParam name="email" required="true"
+                     value="#{ ctrlUsuarios.usuario.email }"/>
+        <f:viewAction action="#{ ctrlUsuarios.recupera() }"/>
+    </f:metadata>
+</h:head>
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+    <ui:define name="contenido">
+        <div class="container px-1 px-lg-1 my-1">
+            <!--<section class="vh-100"></section>-->
+            <section style="background-color: #eee;">
+
+                <div class="container py-5">
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card mb-4">
+                                <div class="card-body text-center">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                         alt="avatar"
+                                         class="rounded-circle img-fluid" style="width: 150px;"></img>
+                                    <h5 class="my-3">#{ctrlUsuarios.usuario.email}</h5>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Correo</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">#{ctrlUsuarios.usuario.email}</p>
+                                        </div>
+
+                                    </div>
+                                    <hr></hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Contraseña</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">#{ctrlUsuarios.usuario.contraseña}</p>
+                                        </div>
+                                    </div>
+
+                                    <hr></hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Nombre</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">#{ctrlUsuarios.usuario.nombre}</p>
+                                        </div>
+                                    </div>
+                                    <hr></hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Dirección</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">#{ctrlUsuarios.usuario.direccion}</p>
+                                        </div>
+                                    </div>
+                                    <hr></hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Tarjeta</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">#{ctrlUsuarios.usuario.tarjeta}</p>
+                                        </div>
+
+                                    </div>
+                                    <hr></hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Tipo</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">#{ctrlUsuarios.usuario.tipo}</p>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <ui:decorate template="/WEB-INF/templates/operacionesCRUD.xhtml">
+                                    <ui:param name="usuario" value="#{ctrlUsuarios.usuario.email}"/>
+                                    <ui:param name="titulo" value="Gestión de Usuarios"/>
+                                    <ui:param name="mostrar" value="Usuarios Registrados"/>
+                                    <ui:param name="pagMostrar" value="#{request.contextPath}/usuarios/listadoUsuarios.xhtml"/>
+                                    <ui:param name="insertar" value="Insertar Usuario"/>
+                                    <ui:param name="pagInsertar" value="#{request.contextPath}/usuarios/insertar.xhtml"/>
+                                    <ui:param name="editar" value="Modificar Usuario"/>
+                                    <ui:param name="pagEditar" value="#{request.contextPath}/usuarios/modificar.xhtml"/>
+                                    <ui:param name="borrar" value="Borrar Usuario"/>
+                                    <ui:param name="pagBorrar" value="#{request.contextPath}/usuarios/borrar.xhtml"/>
+                                </ui:decorate>
+                                <ui:decorate template="/WEB-INF/templates/operacionesCRUD.xhtml">
+                                    <ui:param name="usuario" value="#{ctrlUsuarios.usuario.email}"/>
+                                    <ui:param name="titulo" value="Gestión de Productos"/>
+                                    <ui:param name="mostrar" value="Productos Registrados"/>
+                                    <ui:param name="pagMostrar" value="#{request.contextPath}/index.xhtml"/>
+                                    <ui:param name="insertar" value="Insertar Producto"/>
+                                    <ui:param name="pagInsertar" value="#{request.contextPath}/productos/annadir.xhtml"/>
+                                    <ui:param name="editar" value="Modificar Producto"/>
+                                    <ui:param name="pagEditar" value="#{request.contextPath}/productos/edita.xhtml"/>
+                                    <ui:param name="borrar" value="Borrar Producto"/>
+                                    <ui:param name="pagBorrar" value="#{request.contextPath}/productos/borrar.xhtml"/>
+                                </ui:decorate>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

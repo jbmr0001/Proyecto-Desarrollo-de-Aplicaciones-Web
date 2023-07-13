@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:daw="http://java.sun.com/jsf/composite/daw"
+      xmlns:c="jakarta.tags.core"
+      xmlns:h="jakarta.faces.html">
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+   <ui:define name="contenido">
+      <div class="container px-1 px-lg-1 my-1">
+         <!--<section class="vh-100"></section>-->
+         <section style="background-color: #eee;">
+            <div class="container py-5">
+               <div class="card mb-4">
+                  <div class="card-body">
+                     <h1 class="h3 mb-3 fw-normal">Listado de Productos
+                        <a class="btn btn-outline-primary"
+                           href="#{request.contextPath}/usuarios/paginaUsuario.xhtml?email=${administrador}" >Volver
+                        </a>
+                     </h1>
+                     <h:form>
+                        <ui:repeat var="l" value="#{ctrlProducto.productos}">
+                           <div class="row">
+                              <div class="col-sm-3">
+                                 <p class="mb-0">ID Producto</p>
+
+                              </div>
+                              <div class="col-sm-9">
+                                 <p class="text-muted mb-0">${l.id}</p>
+                              </div>
+                              <div class="col-sm-3">
+                                 <p class="mb-0">Nombre</p>
+
+                              </div>
+                              <div class="col-sm-9">
+                                 <p class="text-muted mb-0">${l.nombre}</p>
+                              </div>
+                              <div class="col-sm-3">
+                                 <p class="mb-0">Descripcion</p>
+
+                              </div>
+                              <div class="col-sm-9">
+                                 <p class="text-muted mb-0">${l.descripcion}</p>
+                              </div>
+                              <div class="col-sm-3">
+                                 <p class="mb-0">Precio</p>
+
+                              </div>
+                              <div class="col-sm-9">
+                                 <p class="text-muted mb-0">${l.precio}</p>
+                              </div>
+                           </div>
+
+                           <hr/>
+                        </ui:repeat>
+                     </h:form>
+
+                  </div>
+
+               </div>
+            </div>
+         </section>
+      </div>
+   </ui:define>
+</ui:composition>
+</html>

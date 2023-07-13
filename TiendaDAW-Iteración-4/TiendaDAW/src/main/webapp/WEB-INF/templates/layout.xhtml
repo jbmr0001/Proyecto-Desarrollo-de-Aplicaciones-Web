@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core">
+
+<h:head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>TiendaDAW</title>
+
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet"/>
+
+    <!--<h:outputStylesheet library="webjars" name="bootstrap/4.4.1/css/bootstrap.min-jsf.css"  />-->
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <h:outputScript name="js/scripts.js"/>
+    <!-- <h:outputScript library="webjars" name="jquery/3.0.0/jquery.js" />-->
+
+</h:head>
+<h:body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#{request.contextPath}/index.xhtml">TiendaDAW</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">MENÚ</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#{request.contextPath}/index.xhtml">Ofertas</a></li>
+                            <li>
+                                <hr class="dropdown-divider"/>
+                            </li>
+                            <li><a class="dropdown-item" href="#{request.contextPath}/index.xhtml">Categorías</a></li>
+                            <li><a class="dropdown-item"
+                                   href="#{request.contextPath}/index.xhtml">Productos más vendidos</a></li>
+                            <li><a class="dropdown-item" href="#{request.contextPath}/index.xhtml">Apartado 3</a></li>
+                            <li><a class="dropdown-item" href="#{request.contextPath}/index.xhtml">Apartado 4</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="#!"></a></li>
+
+                </ul>
+
+                <c:if test="#{empty request.remoteUser}">
+                    <a class="btn btn-outline-success"
+                       href="#{request.contextPath}/usuarios/paginaUsuario.xhtml">Iniciar Sesión
+                    </a>
+                </c:if>
+                <c:if test="#{not empty request.remoteUser}">
+                    <h:form>
+                    <h:commandButton class="btn btn-outline-danger" action="#{ctrlUsuarios.logout}"
+                                     value="Cerrar Sesión ">
+                    </h:commandButton>
+                    </h:form>
+                    <a class="btn btn-light"
+                       href="#{request.contextPath}/usuarios/paginaUsuario.xhtml">#{request.remoteUser}
+                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                             alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 25px;">
+                        </img>
+                    </a>
+                </c:if>
+            </div>
+        </div>
+    </nav>
+    <section class="py-5">
+        <ui:insert name="contenido">
+            Debes personalizar este contenido
+        </ui:insert>
+    </section>
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; TiendaDAW 2023 Escribenos en
+            TiendaDAW@info.com</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+</h:body>
+</html>
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+
+    <ui:composition template="/WEB-INF/templates/layout.xhtml">
+        <ui:define name="contenido">
+           <div class="container px-4 px-lg-5 my-5">
+              <section>
+                 <main class="form-signin w-100 m-auto">
+                    <h:form>
+                       <h:messages globalOnly="true" layout="table" infoClass="alert alert-success" errorClass="alert alert-danger" />
+                       <h1 class="h3 mb-3 fw-normal">Insertar Informacion del producto
+                           <a class="btn btn-outline-primary"
+                              href="#{request.contextPath}/usuarios/paginaUsuario.xhtml?email=${administrador}" >Volver
+                           </a></h1>
+                        <div class="form-group">
+                            <label for="id">Id</label>
+                            <h:inputText class="form-control" id="id" placeholder="id"
+                                         value="#{ctrlProducto.producto.id}"
+                            ></h:inputText>
+                            <small><h:message style="color: red;" for="id"/></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                                <h:inputText class="form-control" id="nombre" placeholder="Nombre"
+                                       value="#{ctrlProducto.producto.nombre}"
+                                ></h:inputText>
+                            <small><h:message style="color: red;" for="nombre"/></small>
+                       </div>
+                       <div class="form-group">
+                            <label for="email">Descripcion</label>
+                                <h:inputText class="form-control" id="descripcion" placeholder="Descripcion"
+                                    value="#{ctrlProducto.producto.descripcion}"></h:inputText>
+                                <small><h:message style="color: red;" for="descripcion"/></small>
+                        </div>
+                        <div class="form-group">
+                            <label for="contr">Precio</label>
+                                <h:inputText class="form-control" id="precio" placeholder="€"
+                                     value="#{ctrlProducto.producto.precio}"></h:inputText>
+                            <small><h:message style="color: red;" for="precio"/></small>
+                        </div>
+                       <br>
+                          <h:commandButton class="w-100 btn btn-lg btn btn-success"
+                                           action="#{ctrlProducto.modifica()}" value="Modificar producto">
+                          </h:commandButton>
+                       </br>
+                    </h:form>
+                 </main>
+              </section>
+           </div>
+        </ui:define>
+     </ui:composition>
+</html>

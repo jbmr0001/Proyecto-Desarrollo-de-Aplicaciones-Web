@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:daw="http://java.sun.com/jsf/composite/daw"
+      xmlns:c="jakarta.tags.core"
+      xmlns:h="jakarta.faces.html">
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+    <ui:define name="contenido">
+        <div class="container px-1 px-lg-1 my-1">
+            <!--<section class="vh-100"></section>-->
+            <section style="background-color: #eee;">
+                <div class="container py-5">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="h3 mb-3 fw-normal">Listado de Usuarios
+                                <a class="btn btn-outline-primary"
+                                   href="#{request.contextPath}/usuarios/paginaUsuario.xhtml?email=${administrador}">Volver
+                                </a>
+                                <h:messages globalOnly="true" layout="table" infoClass="alert alert-success"
+                                            errorClass="alert alert-danger"/>
+                            </h1>
+                            <h:form>
+                                <ui:repeat var="l" value="#{ctrlUsuarios.usuarios}">
+                                    <div class="row">
+                                        <h:outputText value="(Administrador Principal)" class="text-danger mb-0" rendered="#{ctrlUsuarios.esAdminPrincipal(l.email)}"/>
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Email</p>
+
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">${l.email}</p>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <p class="mb-0">Contraseña</p>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <p class="text-muted mb-0">${l.contraseña}
+                                                <h:commandLink value="Detallar Usuario"
+                                                               action="#{ctrlUsuarios.recuperaConEmail(l.email)}">
+                                                    <f:ajax render="detalle"/>
+                                                </h:commandLink>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <h:commandLink class="btn btn-outline-danger" value="Borrar"
+                                                           rendered="#{not ctrlUsuarios.esAdminPrincipal(l.email)}"
+                                                           action="#{ctrlUsuarios.borra(l.email)}">
+                                            </h:commandLink>
+                                            <h:link class="btn btn-outline-primary" value="Editar"
+                                                    outcome="/usuarios/modificar">
+                                                <f:param name="email" value="#{l.email}"/>
+                                            </h:link>
+                                        </div>
+                                        <div class="col-sm-6"></div>
+                                        <div class="col-sm-3">
+                                            <h:panelGroup id="detalle" layout="block">
+                                                <h:form rendered="#{not empty(ctrlUsuarios.usuario.email)}">
+                                                    <c:set var="usuario" value="${l}"/>
+                                                    <h3>Detalle del Usuario</h3>
+                                                    <daw:detalleUsuario value="#{usuario}"/>
+                                                </h:form>
+                                            </h:panelGroup>
+                                        </div>
+                                        <div class="col-sm-3">
+
+                                        </div>
+                                    </div>
+
+                                    <hr/>
+                                </ui:repeat>
+                                <div>
+                                    <h:link class="btn btn-outline-success" value="Crear"
+                                            outcome="/usuarios/insertar">
+                                    </h:link>
+                                </div>
+                            </h:form>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
+

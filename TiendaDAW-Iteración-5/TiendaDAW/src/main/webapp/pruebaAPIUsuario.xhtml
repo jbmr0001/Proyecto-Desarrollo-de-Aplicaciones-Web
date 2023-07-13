@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <script src="#{request.contextPath}/resources/js/usuarios.app.js"></script>
+</h:head>
+<body>
+<div class="row text-center">
+
+    <h1>Listado de Usuarios</h1>  <a href="#{request.contextPath}/usuarios/paginaUsuario.xhtml">Volver</a>
+    <ul id="lista">
+        <!-- listado de libros -->
+    </ul>
+    <h1>Alta de usuario</h1>
+    <div id="errores"><!-- Mensajes de error --></div>
+    <form id="fAlta" method="POST" action="">
+        <div id="errEmail"><!-- Mensajes de error --></div>
+        <div><label>Email: <input name="emailInsertar"> </input></label></div>
+        <div id="errContraseña"><!-- Mensajes de error --></div>
+        <div><label>Contraseña:<input name="contraseñaInsertar"></input></label></div>
+        <div><label>Nombre:<input name="nombreInsertar"></input></label></div>
+        <div><label>Dirección:<input name="direccionInsertar"></input></label></div>
+        <div><label>Tarjeta:<input name="tarjetaInsertar"></input></label></div>
+        <div><label>Admin (true o false):<input name="adminInsertar"></input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+    <h1>Modificar Usuario</h1>
+    <form id="fMod" method="POST" action="">
+        <div><label>Email: <input name="emailModificar"> </input></label></div>
+        <div><label>Contraseña:<input name="contraseñaModificar"></input></label></div>
+        <div><label>Nombre:<input name="nombreModificar"></input></label></div>
+        <div><label>Dirección:<input name="direccionModificar"></input></label></div>
+        <div><label>Tarjeta:<input name="tarjetaModificar"></input></label></div>
+        <div><label>Admin (true o false):<input name="adminModificar"></input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+    <h1>Borrar Usuario</h1>
+    <form id="fBorra" method="POST" action="">
+        <div><label>Email: <input name="emailBorrar"> </input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+</div>
+</body>
+
+</html>

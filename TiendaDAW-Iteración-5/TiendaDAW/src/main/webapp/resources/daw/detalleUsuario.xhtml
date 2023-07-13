@@ -1,0 +1,32 @@
+<ui:component xmlns="http://www.w3.org/1999/xhtml"
+              xmlns:ui="jakarta.faces.facelets"
+              xmlns:f="jakarta.faces.core"
+              xmlns:h="jakarta.faces.html"
+              xmlns:cc="http://java.sun.com/jsf/composite">
+
+   <cc:interface>
+      <cc:attribute name="value" />
+   </cc:interface>
+   <cc:implementation>
+         <div>
+            <b>Usuario:</b> #{cc.attrs.value.email}
+         </div>
+         <div>
+            <b>Contraseña: </b>#{cc.attrs.value.contraseña}
+         </div>
+         <div>
+            <b>Nombre: </b>#{cc.attrs.value.nombre}
+         </div>
+         <div>
+            <b>Dirección: </b>#{cc.attrs.value.direccion}
+         </div>
+         <div>
+            <b>Tarjeta: </b>#{cc.attrs.value.tarjeta}
+         </div>
+       <div>
+           <b>Admin: </b>#{cc.attrs.value.admin}
+       </div>
+   </cc:implementation>
+
+
+</ui:component>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core">
+
+<h:head>
+    <h:outputStylesheet library="css" name="styles.css"/>
+    <script src="#{request.contextPath}/resources/js/compras.app.js"></script>
+</h:head>
+<body>
+<div class="row text-center">
+    <h1>Listado de Compras</h1>  <a
+                                     href="#{request.contextPath}/usuarios/paginaUsuario.xhtml">Volver</a>
+    <ul id="lista">
+        <!-- listado de libros -->
+    </ul>
+    <h1>Alta de Compra</h1>
+    <div id="errores"><!-- Mensajes de error --></div>
+    <form id="fAlta" method="POST" action="">
+        <div><label>Email: <input name="emailInsertar"> </input></label></div>
+        <div><label>IdProducto:<input name="idProductoInsertar"></input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+    <h1>Modificar Compra</h1>
+    <form id="fMod" method="POST" action="">
+        <div><label>Id: <input name="idModificar"> </input></label></div>
+        <div><label>Email: <input name="emailModificar"> </input></label></div>
+        <div><label>IdProducto:<input name="idProductoModificar"></input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+
+    <h1>Borrar Compra</h1>
+    <form id="fBorra" method="POST" action="">
+        <div><label>Id: <input name="idBorrar"> </input></label></div>
+        <input name="enviar" type="Submit" value="Guardar"></input>
+        <input name="enviar" type="Reset" value="Limpiar"></input>
+    </form>
+</div>
+</body>
+
+
+</html>

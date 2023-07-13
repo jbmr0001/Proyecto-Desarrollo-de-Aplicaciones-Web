@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+<h:head>
+   <f:metadata>
+      <f:viewParam name="id" required="true"
+                   value="#{ ctrlCompra.compra.id }"/>
+      <f:viewAction action="#{ ctrlCompra.recupera()}"/>
+   </f:metadata>
+</h:head>
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+   <ui:define name="contenido">
+      <div class="container px-4 px-lg-5 my-5">
+         <section>
+            <main class="form-signin w-100 m-auto">
+               <h:form>
+                  <h:messages globalOnly="true" layout="table" infoClass="alert alert-success" errorClass="alert alert-danger" />
+                  <h1 class="h3 mb-3 fw-normal">Insertar Informacion de la Compra
+                     <a class="btn btn-outline-primary"
+                        href="#{request.contextPath}/ventas/listadoVentas.xhtml" >Volver
+                     </a>
+                  </h1>
+                  <div class="form-group">
+                     <label for="id">Id</label>
+                     <h:inputText class="form-control" id="id" placeholder="id"
+                                  value="#{ctrlCompra.compra.id}"></h:inputText>
+                     <small><h:message style="color: red;" for="id"/></small>
+                  </div>
+                  <div class="form-group">
+                     <label for="email">Email</label>
+                     <h:inputText class="form-control" id="email" placeholder="email"
+                                  value="#{ctrlCompra.compra.email}"></h:inputText>
+                     <small><h:message style="color: red;" for="email"/></small>
+                  </div>
+                  <div class="form-group">
+                     <label for="contr">Id del producto</label>
+                     <h:inputText class="form-control" id="idProducto" placeholder="idProducto"
+                                  value="#{ctrlCompra.compra.idProducto}"></h:inputText>
+                     <small><h:message style="color: red;" for="idProducto"/></small>
+                  </div>
+                  <br>
+                     <h:commandButton class="w-100 btn btn-lg btn btn-success"
+                                      action="#{ctrlCompra.modifica()}" value="Modificar compra">
+                     </h:commandButton>
+                  </br>
+               </h:form>
+            </main>
+         </section>
+      </div>
+   </ui:define>
+</ui:composition>
+</html>

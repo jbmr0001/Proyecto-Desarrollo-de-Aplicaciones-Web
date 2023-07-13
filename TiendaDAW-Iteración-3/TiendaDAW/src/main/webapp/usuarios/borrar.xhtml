@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+   <ui:define name="contenido">
+      <div class="container px-4 px-lg-5 my-5">
+         <section>
+            <main class="form-signin w-100 m-auto">
+               <h:form>
+                  <h:messages globalOnly="true" layout="table" infoClass="alert alert-success" errorClass="alert alert-danger" />
+                  <h1 class="h3 mb-3 fw-normal">Borrar Usuario
+                     <a class="btn btn-outline-primary"
+                        href="#{request.contextPath}/usuarios/paginaUsuario.xhtml?email=${administrador}" >Volver
+                     </a>
+                  </h1>
+                  <div class="form-group">
+                     <label for="email">Email del usuario</label>
+                     <h:inputText class="form-control" id="email" placeholder="ejemplo@ejemplo.com"
+                                  value="#{ctrlUsuarios.usuario.email}"></h:inputText>
+                     <small><h:message style="color: red;" for="email"/></small>
+                  </div>
+                  <br>
+                     <h:commandButton class="w-100 btn btn-lg btn btn btn-danger"
+
+                                      action="#{ctrlUsuarios.borra()}" value="Borrar usuario">
+                     </h:commandButton>
+                  </br>
+               </h:form>
+            </main>
+         </section>
+      </div>
+   </ui:define>
+</ui:composition>
+</html>
+

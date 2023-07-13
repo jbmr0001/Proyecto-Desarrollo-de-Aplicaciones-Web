@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+    <context-param>
+        <param-name>jakarta.faces.PROJECT_STAGE</param-name>
+        <!-- Enable verbose error messages -->
+        <param-value>Development</param-value>
+        <!-- Other values: Production, SystemTest, UnitTest -->
+    </context-param>
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+    <!-- error-code related error pages -->
+    <error-page>
+        <!-- Page not found -->
+        <error-code>404</error-code>
+        <location>/not_found.html</location>
+    </error-page>
+    <!-- Other unhandled error situations-->
+    <error-page>
+        <location>/generic_error.html</location>
+    </error-page>
+
+    <data-source>
+        <name>java:global/jdbc/tienda</name> <!-- JNDI resource -->
+        <class-name>org.h2.jdbcx.JdbcDataSource</class-name> <!-- Driver -->
+        <url>jdbc:h2:~/h2db/tiendadaw;AUTO_SERVER=TRUE</url> <!--DB in user folder -->
+        <user>dawuser</user>
+        <password>dawuser</password>
+        <initial-pool-size>2</initial-pool-size>
+        <max-pool-size>10</max-pool-size>
+        <min-pool-size>5</min-pool-size>
+    </data-source>
+
+
+    <session-config>
+        <session-timeout> 30 </session-timeout> <!-- tiempo de inactividad -->
+        <cookie-config>
+            <http-only>true</http-only> <!-- evita acceso desde javascript -->
+            <secure>false</secure> <!-- true para forzar enviar por conexión segura TLS-->
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode> <!-- desactiva id de sesión en urls -->
+    </session-config>
+
+    <!-- Roles de usuarios que se van a utilizar en las reglas -->
+    <security-role>
+        <role-name>USUARIOS</role-name>
+    </security-role>
+    <security-role>
+        <role-name>ADMINISTRADORES</role-name>
+    </security-role>
+    <!-- Reglas de control de acceso: security-constraint, puede haber varias -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Usuarios identificados</web-resource-name>
+            <url-pattern>/usuarios/*</url-pattern>
+            <url-pattern>/productos/*</url-pattern>
+            <url-pattern>/ventas/*</url-pattern>
+            <url-pattern>/tienda/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>USUARIOS</role-name>
+            <role-name>ADMINISTRADORES</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <!--
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Usuarios No Admin</web-resource-name>
+            <url-pattern>/usuarios/paginaUsuario.xhtml</url-pattern>
+            <url-pattern>/ventas/listadoComprasUsuario.xhtml</url-pattern>
+            <url-pattern>/tienda/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>USUARIOS</role-name>
+        </auth-constraint>
+    </security-constraint>-->
+</web-app>

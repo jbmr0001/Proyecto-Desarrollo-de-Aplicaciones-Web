@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html">
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+    <ui:define name="contenido">
+        <div class="container px-4 px-lg-5 my-5">
+            <main class="form-signin w-100 m-auto">
+                <form>
+
+                    <h1 class="h3 mb-3 fw-normal">Object to modify</h1>
+
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"></input>
+                        <label for="floatingInput">ID</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"></input>
+                        <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"></input>
+                        <label for="floatingPassword">Seller</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"></input>
+                        <label for="floatingPassword">Description</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"></input>
+                        <label for="floatingPassword">Price</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password"></input>
+                        <label for="floatingPassword">image</label>
+                    </div>
+                    <a class="w-100 btn btn-lg btn-primary"
+                       href="producto.xhtml">Editar
+                    </a>
+
+                </form>
+            </main>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

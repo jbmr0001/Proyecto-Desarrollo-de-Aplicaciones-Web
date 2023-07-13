@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html">
+
+<h:body>
+    <h1>Usuarios Registrados</h1>
+    <ul>
+        <ui:repeat var="l" value="#{ctrlUsuarios.usuarios}">
+            <li><b>#{l.email}</b> #{l.contraseña}
+                <h:link value="Mostrar" outcome="detalle">
+                    <f:param name="email" value="${l.email}"/>
+                </h:link>
+            </li>
+        </ui:repeat>
+    </ul>
+</h:body>
+</html>

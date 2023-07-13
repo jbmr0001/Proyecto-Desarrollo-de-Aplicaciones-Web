@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html">
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+   <ui:define name="contenido" >
+      <div class="container px-1 px-lg-1 my-1">
+               <section class="vh-100">
+                  <div class="container py-5 h-100">
+                     <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                           <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                              <div class="card-body p-5 text-center">
+                                 <h1>Datos del Usuario</h1>
+                                 <div>Correo: ${correo}</div>
+                                 <div>Contraseña: ${contr}</div>
+                                 <body>
+                                 <p><a href="mostrarUsuarios/index.xhtml">Usuarios Registrados</a></p>
+                                 </body>
+                                  #{ctrlUsuarios.guarda(correo,contr)}
+
+
+                              </div>
+                               <div class="card-body p-5 text-center">
+                                   <div class="card-body p-5 text-center">
+                                       <a class="btn btn-primary btn-lg btn-block"
+                                          href="annadir.xhtml">Insertar Producto
+                                       </a>
+
+                                   </div>
+                                   <a class="btn btn-primary btn-lg btn-block"
+                                      href="edita.xhtml">Modificar Producto
+                                   </a>
+                                   <a class="btn btn-primary btn-lg btn-block"
+                                      href="borrar.xhtml">Borrar Producto
+                                   </a>
+                               </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </section>
+      </div>
+   </ui:define>
+</ui:composition>
+</html>
+
+
