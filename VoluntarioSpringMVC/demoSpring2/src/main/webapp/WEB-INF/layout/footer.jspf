@@ -1,0 +1,5 @@
+<%-- any content can be specified here e.g.: --%>
+<link href="css/styles.css" rel="stylesheet"/>
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; TiendaDAW 2022</p></div>
+</footer>

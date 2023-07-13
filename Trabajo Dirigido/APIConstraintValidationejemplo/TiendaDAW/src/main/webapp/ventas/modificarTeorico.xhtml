@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+   <ui:define name="contenido">
+      <div class="container px-4 px-lg-5 my-5">
+         <section>
+            <main class="form-signin w-100 m-auto">
+               <form action="#{ctrlCompra.modifica()}" method="POST">
+                  <h:messages globalOnly="true" layout="table" infoClass="alert alert-success"
+                              errorClass="alert alert-danger"/>
+                  <h1 class="h3 mb-3 fw-normal">Modificar Compra
+                     <a class="btn btn-outline-primary"
+                        href="#{request.contextPath}/usuarios/paginaUsuario.xhtml?email=${administrador}">Volver
+                     </a>
+                  </h1>
+
+                  <div class="form-group">
+                     <label class="form-label" for="id">ID</label>
+                     <input class="form-control" id="id" type="number"  min="1"  required="true"
+                            name="precio" value="#{ctrlCompra.compra.id}"/>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="form-label" for="idProducto">idProducto</label>
+                     <input class="form-control" id="idProducto" type="number" min="1" required="true"
+                            name="stock" value="#{ctrlCompra.compra.idProducto}"/>
+                  </div>
+
+                  <div class="form-group">
+                     <label class="form-label" for="email">Email Usuario</label>
+                     <input class="form-control" id="email" type="email"  required="true"
+                            name="desc" value="#{ctrlCompra.compra.email}"/>
+                  </div>
+
+                  <br>
+                     <input class="w-100 btn btn-lg btn btn-success"
+                            value="Modificar Compra" type="submit">
+                     </input>
+                  </br>
+               </form>
+               <script src="../resources/js/validacionCompra.js"></script>
+            </main>
+         </section>
+      </div>
+   </ui:define>
+</ui:composition>
+</html>
+
+
+

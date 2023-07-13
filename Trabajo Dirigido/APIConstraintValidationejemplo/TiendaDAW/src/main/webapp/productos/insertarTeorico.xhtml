@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:h="jakarta.faces.html">
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+    <ui:define name="contenido">
+        <div class="container px-4 px-lg-5 my-5">
+            <section>
+                <main class="form-signin w-100 m-auto">
+                    <form action="#{ctrlProducto.crea()}" method="POST" name="form">
+                        <h:messages globalOnly="true" layout="table" infoClass="alert alert-success" errorClass="alert alert-danger" />
+                        <h1 class="h3 mb-3 fw-normal">Insertar Producto
+                            <a class="btn btn-outline-primary"
+                               href="#{request.contextPath}/usuarios/paginaUsuario.xhtml?email=${administrador}" >Volver
+                            </a>
+                        </h1>
+
+                        <div class="form-group">
+                            <label class="form-label" for="nombre">Nombre</label>
+                            <input class="form-control"  id="nombre"
+                                   name="nombre" type="text" value="#{ctrlProducto.producto.nombre}" minlength="10" required="true"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="desc">Descripción</label>
+                            <input class="form-control" type="text" id="desc" maxlength="15"
+                                   name="desc" value="#{ctrlProducto.producto.descripcion}"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="precio">Precio</label>
+                            <input  class="form-control" id="precio" type="number" min="1" required="true"
+                                   name="precio" value="#{ctrlProducto.producto.precio}" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="stock">Stock</label>
+                            <input  class="form-control" id="stock" type="number" min="1" required="true"
+                                   name="stock" value="#{ctrlProducto.producto.stock}" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="ruta">Nombre de la foto guardada en la carpeta webapp/resources/images/</label>
+                            <input class="form-control" type="text" id="ruta"
+                                   name="ruta" value="#{ctrlProducto.producto.ruta}"/>
+                        </div>
+
+                        <br>
+                            <input class="w-100 btn btn-lg btn btn-success"
+                                   value="Insertar Producto" type="submit" >
+                            </input>
+                        </br>
+
+                    </form>
+                    <script src="../resources/js/validacionProducto.js"></script>
+                </main>
+            </section>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
+
+

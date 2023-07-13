@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core"
+      xmlns:c="jakarta.tags.core"
+      xmlns:h="jakarta.faces.html">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Mi Página</title>
+    <script>
+
+    </script>
+
+</h:head>
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+    <ui:define name="contenido">
+        <div class="container px-1 px-lg-1 my-1">
+            <main class="form-signin w-20 m-auto">
+                <!--<form method="POST" action="login">-->
+                <section class="vh-100">
+                    <div class="container py-5 h-100">
+                        <div class="row d-flex justify-content-center align-items-center h-100">
+                            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                                    <div class="card-body p-5 text-center">
+                                        <c:if test="#{param.error!=null}">
+                                            <p class="alert alert-danger">Usuario Incorrecto Prueba admin@admin contraseña:admin</p>
+                                        </c:if>
+                                        <form action="j_security_check" method="POST">
+
+                                            <h3 class="mb-5">Iniciar Sesión
+                                            </h3>
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" for="mail">Email</label>
+                                                <input class="form-control form-control-lg" type="email" id="mail" required="true"
+                                                       name="j_username" value="#{ctrlUsuario.usuario.email}"/>
+                                            </div>
+                                            <div class="form-outline mb-4">
+                                                <label class="form-label" for="contr">Contraseña</label>
+                                                <input class="form-control form-control-lg" type="password" id="contr" required="true"
+                                                       name="j_password" value="#{ctrlUsuario.usuario.contraseña}" />
+                                            </div>
+                                            <br>
+                                                <input class="btn btn-success btn-lg btn-block"
+                                                       type="submit" value="Iniciar Sesión">
+                                                </input>
+                                                <p>¿No eres miembro? <a href="registroTeorico.xhtml">Registrarse</a></p>
+                                            </br>
+                                        </form>
+                                        <script src="../resources/js/validacionUsuario.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
